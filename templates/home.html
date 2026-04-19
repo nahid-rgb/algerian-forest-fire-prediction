@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algerian Forest Fire FWI Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #e74c3c;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #c0392b;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 FWI Prediction</h1>
+        <form action="/predictdata" method="post">
+            <input type="text" name="Temperature" placeholder="Temperature" required/>
+            <input type="text" name="RH" placeholder="Relative Humidity (RH)" required/>
+            <input type="text" name="Ws" placeholder="Wind Speed (Ws)" required/>
+            <input type="text" name="Rain" placeholder="Rain" required/>
+            <input type="text" name="FFMC" placeholder="FFMC" required/>
+            <input type="text" name="DMC" placeholder="DMC" required/>
+            <input type="text" name="ISI" placeholder="ISI" required/>
+            <input type="text" name="Classes" placeholder="Classes" required/>
+            <input type="text" name="Region" placeholder="Region" required/>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if results %}
+        <div class="result">
+            🌲 THE FWI Prediction is: <span style="color:#e74c3c;">{{ results }}</span>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

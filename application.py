@@ -3,6 +3,7 @@ import pickle
 from flask import Flask, request, render_template
 import numpy as np
 
+
 application = Flask(__name__)
 app = application
 
@@ -27,9 +28,9 @@ print("Loaded Model:", type(ridge_model))
 print("Loaded Scaler:", type(standard_scaler))
 
 
-# @app.route("/")
-# def index():
-#     return render_template('home.html')
+@app.route("/")
+def index():
+    return render_template('home.html')
 
 
 @app.route("/predictdata", methods=['GET', 'POST'])
